@@ -1,5 +1,28 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+
+  css: [
+    'bootstrap/dist/css/bootstrap.min.css',
+    '@/assets/css/main.css'
+  ],
+
+  app: {
+    head: {
+      title: 'BootTrainingPeru | Zapatillas deportivas',
+      meta: [
+        {
+          name: 'description',
+          content: 'Tienda online de zapatillas deportivas para training, gym y uso diario en Perú.'
+        }
+      ],
+      script: [
+        {
+          src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js',
+          defer: true
+        }
+      ]
+    }
+  }
 })
