@@ -1,3 +1,15 @@
+<script setup>
+const route = useRoute()
+
+const links = [
+  { label: 'Inicio',      to: '/'           },
+  { label: 'Productos',   to: '/productos'  },
+  { label: 'Beneficios',  to: '/beneficios' },
+  { label: 'Detalle',     to: '/detalle'    },
+  { label: 'Contacto',    to: '/contacto'   },
+]
+</script>
+
 <template>
   <div>
     <div class="topbar text-center py-3">
@@ -7,13 +19,13 @@
     <header class="site-header sticky-top">
       <nav class="navbar navbar-expand-lg py-3">
         <div class="container">
-          <a class="navbar-brand brand d-flex align-items-center gap-3 m-0" href="#inicio">
-            <div class="brand-badge">BF</div>
-            <div>
-              <h1>Boot Fit Perú</h1>
-              <p>Zapatillas deportivas para gym</p>
-            </div>
-          </a>
+          <NuxtLink class="navbar-brand brand d-flex align-items-center m-0" to="/">
+            <img
+              src="~/assets/images/logo_peru.jpeg"
+              alt="Boot Training Brasil Perú"
+              class="brand-logo"
+            >
+          </NuxtLink>
 
           <button
             class="navbar-toggler"
@@ -26,16 +38,20 @@
 
           <div id="mainNav" class="collapse navbar-collapse">
             <ul class="navbar-nav mx-auto gap-lg-2 text-center">
-              <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
-              <li class="nav-item"><a class="nav-link" href="#catalogo">Productos</a></li>
-              <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
-              <li class="nav-item"><a class="nav-link" href="#detalle">Detalle</a></li>
-              <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+              <li v-for="link in links" :key="link.to" class="nav-item">
+                <NuxtLink
+                  :to="link.to"
+                  class="nav-link"
+                  :class="{ active: route.path === link.to }"
+                >
+                  {{ link.label }}
+                </NuxtLink>
+              </li>
             </ul>
 
             <div class="d-flex align-items-center justify-content-center gap-2 mt-3 mt-lg-0">
               <button class="icon-btn" aria-label="Buscar">🔍</button>
-              <a class="btn primary-btn px-4 py-3" href="#catalogo">Comprar ahora</a>
+              <NuxtLink class="btn primary-btn px-4 py-3" to="/productos">Comprar ahora</NuxtLink>
             </div>
           </div>
         </div>

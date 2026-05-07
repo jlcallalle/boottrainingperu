@@ -1,5 +1,6 @@
 <script setup>
-const emit = defineEmits(['view-detail', 'buy-product'])
+const emit = defineEmits(['buy-product'])
+const router = useRouter()
 
 const products = [
   {
@@ -39,10 +40,14 @@ const products = [
     note: 'Pago seguro online'
   }
 ]
+
+const goToDetail = (product) => {
+  router.push({ path: '/detalle', query: { producto: product.name } })
+}
 </script>
 
 <template>
-  <section id="catalogo" class="py-4 py-lg-5">
+  <section class="py-4 py-lg-5">
     <div class="container">
       <div class="section-head d-flex flex-column flex-lg-row align-items-lg-end justify-content-between gap-3 mb-4">
         <div>
@@ -52,9 +57,9 @@ const products = [
           </p>
         </div>
 
-        <a class="btn secondary-btn px-4 py-3" href="#detalle">
+        <NuxtLink class="btn secondary-btn px-4 py-3" to="/detalle">
           Ver detalle de producto
-        </a>
+        </NuxtLink>
       </div>
 
       <div class="row g-4">
@@ -91,7 +96,7 @@ const products = [
               <div class="d-flex gap-2 mt-3 card-actions-mobile">
                 <button
                   class="btn detail-btn flex-fill py-3"
-                  @click="emit('view-detail', product)"
+                  @click="goToDetail(product)"
                 >
                   Ver detalle
                 </button>

@@ -7,7 +7,5 @@ const handleBuy = (productName) => {
 </script>
 
 <template>
-  <HeroSection />
   <ProductList @buy-product="handleBuy" />
-  <BenefitSection />
 </template>

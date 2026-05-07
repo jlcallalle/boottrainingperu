@@ -10,8 +10,8 @@
         </div>
 
         <div class="d-flex gap-2 flex-wrap">
-          <a class="btn secondary-btn px-4 py-3" href="#catalogo">Catálogo</a>
-          <a class="btn primary-btn px-4 py-3" href="#contacto">Contacto</a>
+          <NuxtLink class="btn secondary-btn px-4 py-3" to="/productos">Catálogo</NuxtLink>
+          <NuxtLink class="btn primary-btn px-4 py-3" to="/contacto">Contacto</NuxtLink>
         </div>
       </div>
     </div>
