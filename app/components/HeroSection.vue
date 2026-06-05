@@ -1,3 +1,7 @@
+<script setup>
+import heroImage from '~/assets/images/tenis1.jpeg'
+</script>
+
 <template>
   <section id="inicio" class="py-4 py-lg-5">
     <div class="container">
@@ -50,9 +54,10 @@
             <div class="floating-note">✨ Modelo destacado</div>
 
             <img
-              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80"
+              :src="heroImage"
               alt="Zapatilla deportiva destacada"
             >
+            
 
             <div class="floating-price">
               <small>Desde</small>
