@@ -33,13 +33,26 @@ const colorOptions = [
 
 const allSizes = [35, 36, 37, 38, 39, 40]
 
-const mainImage    = ref(colorOptions[0].image)
-const activeThumb  = ref(0)
-const activeColor  = ref(0)
-const activeSizes  = ref([])
-const quantity     = ref(1)
-const cart         = ref([])
+const mainImage     = ref(colorOptions[0].image)
+const activeThumb   = ref(0)
+const activeColor   = ref(0)
+const activeSizes   = ref([])
+const quantity      = ref(1)
+const cart          = ref([])
 const openAccordion = ref(0)
+
+// Zoom lupa
+const isZooming = ref(false)
+const zoomStyle = ref({})
+
+const onZoomEnter = () => { isZooming.value = true }
+const onZoomLeave = () => { isZooming.value = false; zoomStyle.value = {} }
+const onZoomMove  = (e) => {
+  const rect = e.currentTarget.getBoundingClientRect()
+  const x = ((e.clientX - rect.left) / rect.width)  * 100
+  const y = ((e.clientY - rect.top)  / rect.height) * 100
+  zoomStyle.value = { transformOrigin: `${x}% ${y}%`, transform: 'scale(2.4)' }
+}
 
 const accordionItems = [
   {
@@ -120,8 +133,14 @@ const sendSummary = () => {
 
         <!-- Galería -->
         <div class="pd-gallery">
-          <div class="pd-main-image">
-            <img :src="mainImage" :alt="product.name">
+          <div
+            class="pd-main-image"
+            :class="{ zooming: isZooming }"
+            @mouseenter="onZoomEnter"
+            @mouseleave="onZoomLeave"
+            @mousemove="onZoomMove"
+          >
+            <img :src="mainImage" :alt="product.name" :style="zoomStyle">
           </div>
           <div class="pd-thumbs">
             <button
@@ -285,11 +304,20 @@ const sendSummary = () => {
   place-items: center;
   padding: 24px;
   margin-bottom: 16px;
+  cursor: crosshair;
+  position: relative;
 }
 
 .pd-main-image img {
   width: 100%; height: 100%;
   object-fit: contain;
+  filter: drop-shadow(0 32px 36px rgba(0,0,0,.12));
+  transition: transform 0.1s ease;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.pd-main-image.zooming img {
   filter: drop-shadow(0 32px 36px rgba(0,0,0,.12));
 }
 

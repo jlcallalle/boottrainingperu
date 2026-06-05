@@ -1,8 +1,19 @@
 <script setup>
+import tenisFeminino from '~/assets/images/tenis-treino-feminino.webp'
+
 const emit = defineEmits(['buy-product'])
 const router = useRouter()
 
 const products = [
+  {
+    name: 'Tenis Treino Feminino',
+    tag: 'Destacado',
+    price: 259.9,
+    desc: 'Zapatillas de entrenamiento físico para mujer, diseñadas para gym, funcional y uso diario.',
+    image: tenisFeminino,
+    sizes: [35, 36, 37, 38, 39],
+    note: 'Envío gratis en Lima'
+  },
   {
     name: 'Power Black',
     tag: 'Nuevo',
