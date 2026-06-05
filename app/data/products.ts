@@ -1,30 +1,32 @@
 import tenisFeminino from '~/assets/images/tenis-treino-feminino.webp'
+import divasImage from '~/assets/images/divas1.webp'
+import bootzImage from '~/assets/images/bootz1.webp'
 
 export const products = [
   {
-    name: 'Tenis Treino Feminino',
+    name: 'Zapatillas de entrenamiento',
     tag: 'Destacado',
     price: 259.9,
     desc: 'Zapatillas de entrenamiento físico para mujer, diseñadas para gym, funcional y uso diario.',
     image: tenisFeminino,
-    sizes: [35, 36, 37, 38, 39],
+    sizes: [34, 35, 36, 37, 38, 39],
     note: 'Envío gratis en Lima'
   },
   {
-    name: 'Power Black',
+    name: 'Botas Divas entrenamiento',
     tag: 'Nuevo',
     price: 239.9,
     desc: 'Modelo urbano con acabado premium y suela cómoda para gym y uso diario.',
-    image: 'https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&w=900&q=80',
+    image: divasImage,
     sizes: [35, 36, 37, 38],
     note: '6% dto. por transferencia'
   },
   {
-    name: 'Silver Rose',
+    name: 'Botas Bootz entrenamiento',
     tag: 'Top ventas',
     price: 229.9,
     desc: 'Diseño moderno en tonos suaves, ideal para una propuesta femenina y visual.',
-    image: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=80',
+    image: bootzImage,
     sizes: [35, 36, 37, 39],
     note: 'Stock limitado'
   },
