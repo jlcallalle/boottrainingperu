@@ -45,10 +45,6 @@ const submitForm = () => {
                 <strong>Correo comercial</strong>
                 ventas@bootfitperu.pe
               </li>
-              <li>
-                <strong>Ubicación</strong>
-                Lima, Perú
-              </li>
             </ul>
           </div>
         </div>
@@ -108,10 +104,6 @@ const submitForm = () => {
                 <button class="btn detail-btn flex-fill py-3" type="submit">
                   Enviar consulta
                 </button>
-
-                <a class="btn buy-btn flex-fill py-3 d-grid place-items-center" href="#inicio">
-                  Volver arriba
-                </a>
               </div>
             </form>
           </div>
